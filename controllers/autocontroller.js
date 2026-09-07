@@ -227,6 +227,32 @@ const updateProfile = async (req, res, next) => {
   }
 };
 
+
+/* =========================
+   DELETE PROFILE
+========================= */
+
+const deleteProfile = async (req, res, next) => {
+  try {
+    const user = await User.findById(req.user._id);
+
+    if (!user) {
+      return res.status(404).json({
+        message: "User not found",
+      });
+    }
+
+    await User.findByIdAndDelete(req.user._id);
+
+    res.status(200).json({
+      message: "User account deleted successfully",
+    });
+
+  } catch (error) {
+    next(error);
+  }
+};
+
 /* =========================
    EXPORTS
 ========================= */
@@ -235,4 +261,5 @@ module.exports = {
   signup,
   login,
   updateProfile,
+  deleteProfile,
 };

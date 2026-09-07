@@ -12,6 +12,7 @@ const createTask = async (req, res, next) => {
       status,
       priority,
       dueDate,
+      project,
     } = req.body;
 
     // Title validation
@@ -53,6 +54,7 @@ const createTask = async (req, res, next) => {
       status,
       priority,
       dueDate,
+      project: project || null,
       user: req.user._id,
     });
 
@@ -74,7 +76,9 @@ const getTasks = async (req, res, next) => {
   try {
     const tasks = await Task.find({
       user: req.user._id,
-    }).sort({ createdAt: -1 });
+    })
+     .populate("project", "name status progress")
+    .sort({ createdAt: -1 });
 
     res.status(200).json(tasks);
   } catch (error) {
@@ -105,6 +109,7 @@ const updateTask = async (req, res, next) => {
       status,
       priority,
       dueDate,
+      project,
     } = req.body;
 
     // Title validation
@@ -146,6 +151,11 @@ const updateTask = async (req, res, next) => {
     task.status = status ?? task.status;
     task.priority = priority ?? task.priority;
     task.dueDate = dueDate ?? task.dueDate;
+
+
+    if (project !== undefined) {
+  task.project = project || null;
+}
 
     const updatedTask = await task.save();
 

@@ -1,37 +1,83 @@
+require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
-const dotenv = require("dotenv");
 
 const connectDB = require("./config/db");
 
 const authRoutes = require("./routes/authRoutes");
 const taskRoutes = require("./routes/taskRoutes");
 const projectRoutes = require("./routes/Projectroutes");
-const errorHandler = require("./middleware/errormiddleware");
+const aiRoutes = require("./routes/aiRoutes");
 
-dotenv.config();
+const errorHandler = require("./middleware/errormiddleware");
 
 const app = express();
 
+// =========================
+// DATABASE CONNECTION
+// =========================
+
 connectDB();
 
+// =========================
+// MIDDLEWARE
+// =========================
+
 app.use(cors());
+
 app.use(express.json());
 
-app.use((req, res, next) => {
-  res.set("Cache-Control", "no-store");
-  next();
-});
+// =========================
+// TEST ROUTE
+// =========================
 
 app.get("/", (req, res) => {
   res.status(200).json({
-    message: "Productivity Dashboard Backend is running 🚀",
+    message:
+      "Productivity Dashboard Backend is running 🚀",
   });
 });
 
-app.use("/api/auth", authRoutes);
-app.use("/api/tasks", taskRoutes);
-app.use("/api/projects", projectRoutes);
+// =========================
+// AUTH ROUTES
+// =========================
+
+app.use(
+  "/api/auth",
+  authRoutes
+);
+
+// =========================
+// TASK ROUTES
+// =========================
+
+app.use(
+  "/api/tasks",
+  taskRoutes
+);
+
+// =========================
+// PROJECT ROUTES
+// =========================
+
+app.use(
+  "/api/projects",
+  projectRoutes
+);
+
+// =========================
+// AI ROUTES
+// =========================
+
+app.use(
+  "/api/ai",
+  aiRoutes
+);
+
+// =========================
+// 404 ROUTE
+// =========================
 
 app.use((req, res) => {
   res.status(404).json({
@@ -39,10 +85,21 @@ app.use((req, res) => {
   });
 });
 
+// =========================
+// ERROR HANDLER
+// =========================
+
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+// =========================
+// SERVER
+// =========================
+
+const PORT =
+  process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(
+    `Server running on http://localhost:${PORT}`
+  );
 });

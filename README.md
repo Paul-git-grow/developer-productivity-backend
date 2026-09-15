@@ -297,22 +297,22 @@ MongoDB Atlas
 ## Screenshots
 
 ### Dashboard Overview
-![Dashboard Overview](screenshots/dashboard-overview.png)
+![Dashboard Overview](Screenshots/dashboard-overview.png)
 
 ### Dashboard Recent Activity
-![Dashboard Recent Activity](screenshots/dashboard-activity.png)
+![Dashboard Recent Activity](Screenshots/dashboard-activity.png)
 
 ### Project Management
-![Project Management](screenshots/projects.png)
+![Project Management](Screenshots/projects.png)
 
 ### Task Management
-![Task Management](screenshots/tasks.png)
+![Task Management](Screenshots/tasks.png)
 
 ### AI Task Generator
-![AI Task Generator](screenshots/ai-task-generator.png)
+![AI Task Generator](Screenshots/ai-task-generator.png)
 
 ### AI Generated Suggestions
-![AI Generated Suggestions](screenshots/ai-suggestions.png)
+![AI Generated Suggestions](Screenshots/ai-suggestions.png)
 
 ### API Testing
 

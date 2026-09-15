@@ -296,7 +296,23 @@ MongoDB Atlas
 
 ## Screenshots
 
-Project screenshots can be added here.
+### Dashboard Overview
+![Dashboard Overview](screenshots/dashboard-overview.png)
+
+### Dashboard Recent Activity
+![Dashboard Recent Activity](screenshots/dashboard-activity.png)
+
+### Project Management
+![Project Management](screenshots/projects.png)
+
+### Task Management
+![Task Management](screenshots/tasks.png)
+
+### AI Task Generator
+![AI Task Generator](screenshots/ai-task-generator.png)
+
+### AI Generated Suggestions
+![AI Generated Suggestions](screenshots/ai-suggestions.png)
 
 ### API Testing
 
@@ -320,13 +336,7 @@ Add screenshots showing:
 
 ## Demo Video
 
-Demo video link:
-
-```text
-To be added after recording
-```
-
----
+[Watch the Task 4 Project Demo](https://drive.google.com/file/d/1rO0qPAEdjvHfYWsoT407kqebiFYEIEBU/view?usp=drive_link)
 
 ## Project Status
 
